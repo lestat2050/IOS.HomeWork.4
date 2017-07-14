@@ -12,6 +12,7 @@ class CarCell: UITableViewCell {
     
     @IBOutlet weak var brandLabel: UILabel!
     @IBOutlet weak var modelLabel: UILabel!
+    @IBOutlet weak var releaseDateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

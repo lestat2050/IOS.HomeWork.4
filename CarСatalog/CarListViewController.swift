@@ -15,11 +15,13 @@ class CarListViewController: UIViewController, UITableViewDataSource, AddNewCarD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let testCar1 = Car(brand: "Tesla", model: "Model S", releaseDate: Date())
-        cars.append(testCar1)
-        let testCar2 = Car(brand: "Tesla", model: "Model X", releaseDate: Date())
-        cars.append(testCar2)
+        
+        let formatted = DateFormatter()
+        formatted.dateStyle = .medium
+        let teslaModelS = Car(brand: "Tesla", model: "Model S", releaseDate: formatted.date(from: "May 17, 2012")!)
+        cars.append(teslaModelS)
+        let teslaModelX = Car(brand: "Tesla", model: "Model X", releaseDate: formatted.date(from: "Jun 14, 2013")!)
+        cars.append(teslaModelX)
         
         CarListTableView.dataSource = self
     }
@@ -35,8 +37,12 @@ class CarListViewController: UIViewController, UITableViewDataSource, AddNewCarD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CarCell", for: indexPath) as! CarCell
         let car = cars[indexPath.row]
+        let formatted = DateFormatter()
+        formatted.dateStyle = .medium
+        
         cell.brandLabel.text = car.brand
         cell.modelLabel.text = car.model
+        cell.releaseDateLabel.text = formatted.string(from: car.releaseDate)
         
         return cell
     }
