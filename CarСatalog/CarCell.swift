@@ -10,16 +10,8 @@ import UIKit
 
 class CarCell: UITableViewCell {
     
-    @IBOutlet weak var brandLabel: UILabel!
-    @IBOutlet weak var modelLabel: UILabel!
-    @IBOutlet weak var releaseDateLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
+    @IBOutlet private(set) weak var brandLabel: UILabel!
+    @IBOutlet private(set) weak var modelLabel: UILabel!
+    @IBOutlet private(set) weak var releaseDateLabel: UILabel!
     
 }
