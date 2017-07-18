@@ -8,11 +8,12 @@
 
 import UIKit
 
-class CarListViewController: UIViewController, UITableViewDataSource {
+class CarListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet private weak var carListTableView: UITableView! {
         didSet {
             carListTableView.dataSource = self
+            carListTableView.delegate = self
         }
     }
     
@@ -42,10 +43,8 @@ class CarListViewController: UIViewController, UITableViewDataSource {
         carList.append(car)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        if let indexPath = carListTableView.indexPathForSelectedRow {
-            carListTableView.deselectRow(at: indexPath, animated: true)
-        }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
