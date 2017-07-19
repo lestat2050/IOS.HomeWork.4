@@ -10,7 +10,7 @@ import UIKit
 
 class CarListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet private weak var carListTableView: UITableView! {
+    @IBOutlet private(set) weak var carListTableView: UITableView! {
         didSet {
             carListTableView.dataSource = self
             carListTableView.delegate = self
@@ -34,8 +34,12 @@ class CarListViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     private func addListSample() {
-        addCarInList(brand: "Tesla", model: "Model S", releaseDate: dateFormat.date(from: "May 17, 2012")!)
-        addCarInList(brand: "Tesla", model: "Model X", releaseDate: dateFormat.date(from: "Jun 14, 2013")!)
+        if let date1 = dateFormat.date(from: "May 17, 2012") {
+            addCarInList(brand: "Tesla", model: "Model S", releaseDate: date1)
+        }
+        if let date2 = dateFormat.date(from: "Jun 14, 2013") {
+            addCarInList(brand: "Tesla", model: "Model S", releaseDate: date2)
+        }
     }
     
     private func addCarInList(brand: String, model: String, releaseDate: Date) {
@@ -43,16 +47,12 @@ class CarListViewController: UIViewController, UITableViewDataSource, UITableVie
         carList.append(car)
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return carList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CarCell", for: indexPath) as! CarCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CarCell.identifier, for: indexPath) as! CarCell
         let car = carList[indexPath.row]
         
         cell.brandLabel.text = car.brand
@@ -60,6 +60,10 @@ class CarListViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.releaseDateLabel.text = dateFormat.string(from: car.releaseDate)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func onCreatedNew(car: Car) {
@@ -91,5 +95,8 @@ class CarListViewController: UIViewController, UITableViewDataSource, UITableVie
 extension CarListViewController: AddNewCarDelegate {
     
 }
+
+
+
 
 

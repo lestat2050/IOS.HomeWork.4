@@ -8,20 +8,27 @@
 
 import UIKit
 
-class AddNewCarVC: UIViewController, UITextFieldDelegate {
+class AddNewCarVC: UIViewController {
 
     @IBOutlet private(set) weak var brandTextField: UITextField!
     @IBOutlet private(set) weak var modelTextField: UITextField!
     @IBOutlet private(set) weak var releaseDateTextField: UITextField! {
         didSet {
-            datePicker.datePickerMode = .date
             releaseDateTextField.inputView = datePicker
         }
     }
     
     weak var delegate: AddNewCarDelegate?
     var carForEdit: Car?
+    
     private let datePicker = UIDatePicker()
+    /*do not work datePickerChanged
+    var datePicker: UIDatePicker {
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        return datePicker
+    }
+    */
     
     private var dateFormat: DateFormatter {
         let dateFormat = DateFormatter()
@@ -31,6 +38,8 @@ class AddNewCarVC: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        datePicker.datePickerMode = .date
         
         if let carForEdit = carForEdit {
             brandTextField.text = carForEdit.brand
@@ -62,7 +71,7 @@ class AddNewCarVC: UIViewController, UITextFieldDelegate {
             carForEdit.releaseDate = releaseDate
             delegate?.refreshCarList()
         } else {
-            let car = Car(brand: brand, model: model, releaseDate: dateFormat.date(from: releaseDateTextField.text!)!)
+            let car = Car(brand: brand, model: model, releaseDate: releaseDate)
             delegate?.onCreatedNew(car: car)
         }
         navigationController?.popViewController(animated: true)
@@ -87,5 +96,9 @@ class AddNewCarVC: UIViewController, UITextFieldDelegate {
         releaseDateTextField.text = dateFormat.string(from: sender.date)
     }
     
+}
+
+extension AddNewCarVC: UITextFieldDelegate {
+
 }
 
