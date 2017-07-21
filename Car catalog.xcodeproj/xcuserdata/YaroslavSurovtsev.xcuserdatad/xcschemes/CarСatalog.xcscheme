@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D17858A11F1495C8007F2DA7"
-               BuildableName = "Car&#x421;atalog.app"
-               BlueprintName = "Car&#x421;atalog"
-               ReferencedContainer = "container:Car&#x421;atalog.xcodeproj">
+               BuildableName = "Car catalog.app"
+               BlueprintName = "Car catalog"
+               ReferencedContainer = "container:Car catalog.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D17858A11F1495C8007F2DA7"
-            BuildableName = "Car&#x421;atalog.app"
-            BlueprintName = "Car&#x421;atalog"
-            ReferencedContainer = "container:Car&#x421;atalog.xcodeproj">
+            BuildableName = "Car catalog.app"
+            BlueprintName = "Car catalog"
+            ReferencedContainer = "container:Car catalog.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D17858A11F1495C8007F2DA7"
-            BuildableName = "Car&#x421;atalog.app"
-            BlueprintName = "Car&#x421;atalog"
-            ReferencedContainer = "container:Car&#x421;atalog.xcodeproj">
+            BuildableName = "Car catalog.app"
+            BlueprintName = "Car catalog"
+            ReferencedContainer = "container:Car catalog.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D17858A11F1495C8007F2DA7"
-            BuildableName = "Car&#x421;atalog.app"
-            BlueprintName = "Car&#x421;atalog"
-            ReferencedContainer = "container:Car&#x421;atalog.xcodeproj">
+            BuildableName = "Car catalog.app"
+            BlueprintName = "Car catalog"
+            ReferencedContainer = "container:Car catalog.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

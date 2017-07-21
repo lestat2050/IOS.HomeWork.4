@@ -8,10 +8,12 @@
 
 import UIKit
 
-class AddNewCarVC: UIViewController {
+class AddNewCarVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet private(set) weak var carImage: UIImageView!
     @IBOutlet private(set) weak var brandTextField: UITextField!
     @IBOutlet private(set) weak var modelTextField: UITextField!
+    @IBOutlet private(set) weak var descriptionTextField: UITextView!
     @IBOutlet private(set) weak var releaseDateTextField: UITextField! {
         didSet {
             releaseDateTextField.inputView = datePicker
@@ -22,6 +24,7 @@ class AddNewCarVC: UIViewController {
     var carForEdit: Car?
     
     private let datePicker = UIDatePicker()
+    let imagePicker = UIImagePickerController()
     /*do not work datePickerChanged
     var datePicker: UIDatePicker {
         let datePicker = UIDatePicker()
@@ -45,6 +48,7 @@ class AddNewCarVC: UIViewController {
             brandTextField.text = carForEdit.brand
             modelTextField.text = carForEdit.model
             releaseDateTextField.text = dateFormat.string(from: carForEdit.releaseDate)
+            descriptionTextField.text = carForEdit.description
         }
     }
 
@@ -65,13 +69,21 @@ class AddNewCarVC: UIViewController {
             return
         }
         
+        let descriptionText: String
+        if let description = descriptionTextField.text, !description.isEmpty {
+            descriptionText = description
+        } else {
+            descriptionText = ""
+        }
+
         if let carForEdit = carForEdit {
             carForEdit.brand = brand
             carForEdit.model = model
             carForEdit.releaseDate = releaseDate
+            carForEdit.description = descriptionText
             delegate?.refreshCarList()
         } else {
-            let car = Car(brand: brand, model: model, releaseDate: releaseDate)
+            let car = Car(brand: brand, model: model, releaseDate: releaseDate, description: descriptionText)
             delegate?.onCreatedNew(car: car)
         }
         navigationController?.popViewController(animated: true)
@@ -79,6 +91,25 @@ class AddNewCarVC: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    @IBAction func choosePhoto(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        carImage.image = image
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
     
     private func showAlert(with title: String) {

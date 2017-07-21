@@ -19,7 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D17858A21F1495C8007F2DA7 /* CarСatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CarСatalog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D17858A21F1495C8007F2DA7 /* Car catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car catalog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D17858A51F1495C8007F2DA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D17858A71F1495C8007F2DA7 /* AddNewCarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCarVC.swift; sourceTree = "<group>"; };
 		D17858AA1F1495C8007F2DA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 		D17858A31F1495C8007F2DA7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D17858A21F1495C8007F2DA7 /* CarСatalog.app */,
+				D17858A21F1495C8007F2DA7 /* Car catalog.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,9 +135,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D17858A11F1495C8007F2DA7 /* CarСatalog */ = {
+		D17858A11F1495C8007F2DA7 /* Car catalog */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D17858B41F1495C9007F2DA7 /* Build configuration list for PBXNativeTarget "CarСatalog" */;
+			buildConfigurationList = D17858B41F1495C9007F2DA7 /* Build configuration list for PBXNativeTarget "Car catalog" */;
 			buildPhases = (
 				D178589E1F1495C8007F2DA7 /* Sources */,
 				D178589F1F1495C8007F2DA7 /* Frameworks */,
@@ -147,9 +147,9 @@
 			);
 			dependencies = (
 			);
-			name = "CarСatalog";
+			name = "Car catalog";
 			productName = "CarСatalog";
-			productReference = D17858A21F1495C8007F2DA7 /* CarСatalog.app */;
+			productReference = D17858A21F1495C8007F2DA7 /* Car catalog.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -169,7 +169,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D178589D1F1495C8007F2DA7 /* Build configuration list for PBXProject "CarСatalog" */;
+			buildConfigurationList = D178589D1F1495C8007F2DA7 /* Build configuration list for PBXProject "Car catalog" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -182,7 +182,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D17858A11F1495C8007F2DA7 /* CarСatalog */,
+				D17858A11F1495C8007F2DA7 /* Car catalog */,
 			);
 		};
 /* End PBXProject section */
@@ -362,7 +362,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D178589D1F1495C8007F2DA7 /* Build configuration list for PBXProject "CarСatalog" */ = {
+		D178589D1F1495C8007F2DA7 /* Build configuration list for PBXProject "Car catalog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D17858B21F1495C9007F2DA7 /* Debug */,
@@ -371,7 +371,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D17858B41F1495C9007F2DA7 /* Build configuration list for PBXNativeTarget "CarСatalog" */ = {
+		D17858B41F1495C9007F2DA7 /* Build configuration list for PBXNativeTarget "Car catalog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D17858B51F1495C9007F2DA7 /* Debug */,

@@ -13,11 +13,15 @@ class Car {
     var brand: String
     var model: String
     var releaseDate: Date
+    var description: String
+    var image: String
     
-    init(brand: String, model: String, releaseDate: Date) {
+    init(brand: String, model: String, releaseDate: Date, description: String = "", image: String = "") {
         self.brand = brand
         self.model = model
         self.releaseDate = releaseDate
+        self.description = description
+        self.image = image
     }
     
 }

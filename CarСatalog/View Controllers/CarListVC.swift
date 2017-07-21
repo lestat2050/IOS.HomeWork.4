@@ -35,21 +35,26 @@ class CarListViewController: UIViewController, UITableViewDataSource, UITableVie
     
     private func addListSample() {
         if let date1 = dateFormat.date(from: "May 17, 2012") {
-            addCarInList(brand: "Tesla", model: "Model S", releaseDate: date1)
+            addCarInList(brand: "Tesla", model: "Model S", releaseDate: date1, description: "Price 39900$")
         }
         if let date2 = dateFormat.date(from: "Jun 14, 2013") {
-            addCarInList(brand: "Tesla", model: "Model S", releaseDate: date2)
+            addCarInList(brand: "Tesla", model: "Model X", releaseDate: date2, description: "Price 49900$")
         }
     }
     
-    private func addCarInList(brand: String, model: String, releaseDate: Date) {
-        let car = Car(brand: brand, model: model, releaseDate: releaseDate)
+    private func addCarInList(brand: String, model: String, releaseDate: Date, description: String) {
+        let car = Car(brand: brand, model: model, releaseDate: releaseDate, description: description)
         carList.append(car)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return carList.count
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CarCell.identifier, for: indexPath) as! CarCell
@@ -58,6 +63,7 @@ class CarListViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.brandLabel.text = car.brand
         cell.modelLabel.text = car.model
         cell.releaseDateLabel.text = dateFormat.string(from: car.releaseDate)
+        cell.descriptionLabel.text = car.description
         
         return cell
     }
