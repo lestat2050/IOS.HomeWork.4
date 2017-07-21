@@ -16,7 +16,6 @@ class CarCell: UITableViewCell {
     @IBOutlet private(set) weak var releaseDateLabel: UILabel!
     @IBOutlet private(set) weak var descriptionLabel: UILabel!
     
-    
     static let identifier = "CarCell"
     
     
