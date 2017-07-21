@@ -44,11 +44,18 @@ class AddNewCarVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
         
         datePicker.datePickerMode = .date
         
+        loadCarForEdit()
+    }
+    
+    func loadCarForEdit() {
         if let carForEdit = carForEdit {
             brandTextField.text = carForEdit.brand
             modelTextField.text = carForEdit.model
             releaseDateTextField.text = dateFormat.string(from: carForEdit.releaseDate)
             descriptionTextField.text = carForEdit.description
+            if let image = carForEdit.image {
+                carImage.image = image
+            }
         }
     }
 
@@ -69,11 +76,14 @@ class AddNewCarVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
             return
         }
         
-        let descriptionText: String
+        var descriptionText: String?
         if let description = descriptionTextField.text, !description.isEmpty {
             descriptionText = description
-        } else {
-            descriptionText = ""
+        }
+        
+        var newCarImage: UIImage?
+        if let image = carImage.image {
+            newCarImage = image
         }
 
         if let carForEdit = carForEdit {
@@ -81,9 +91,10 @@ class AddNewCarVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
             carForEdit.model = model
             carForEdit.releaseDate = releaseDate
             carForEdit.description = descriptionText
+            carForEdit.image = newCarImage
             delegate?.refreshCarList()
         } else {
-            let car = Car(brand: brand, model: model, releaseDate: releaseDate, description: descriptionText)
+            let car = Car(brand: brand, model: model, releaseDate: releaseDate, description: descriptionText, image: newCarImage)
             delegate?.onCreatedNew(car: car)
         }
         navigationController?.popViewController(animated: true)

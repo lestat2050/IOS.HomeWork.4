@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D108476F1F2248FD0077CE96 /* CarCellSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = D108476E1F2248FD0077CE96 /* CarCellSmall.swift */; };
 		D17858A61F1495C8007F2DA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17858A51F1495C8007F2DA7 /* AppDelegate.swift */; };
 		D17858A81F1495C8007F2DA7 /* AddNewCarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17858A71F1495C8007F2DA7 /* AddNewCarVC.swift */; };
 		D17858AB1F1495C8007F2DA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D17858A91F1495C8007F2DA7 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D108476E1F2248FD0077CE96 /* CarCellSmall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCellSmall.swift; sourceTree = "<group>"; };
 		D17858A21F1495C8007F2DA7 /* Car catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car catalog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D17858A51F1495C8007F2DA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D17858A71F1495C8007F2DA7 /* AddNewCarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCarVC.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				D17858BF1F14A457007F2DA7 /* CarCell.swift */,
+				D108476E1F2248FD0077CE96 /* CarCellSmall.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D19D127C1F1B545700C05461 /* AddNewCarDelegate.swift in Sources */,
+				D108476F1F2248FD0077CE96 /* CarCellSmall.swift in Sources */,
 				D17858C01F14A457007F2DA7 /* CarCell.swift in Sources */,
 				D19D127F1F1B581200C05461 /* Car.swift in Sources */,
 				D17858A81F1495C8007F2DA7 /* AddNewCarVC.swift in Sources */,
