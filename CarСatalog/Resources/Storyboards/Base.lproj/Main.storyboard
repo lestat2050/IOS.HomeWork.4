@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="m2z-rK-25T">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cars list-->
+        <scene sceneID="u1N-kI-R7t">
+            <objects>
+                <viewController id="TJC-AS-rkg" customClass="CarListViewController" customModule="CarCatalog" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="X0w-ng-GKa"/>
+                        <viewControllerLayoutGuide type="bottom" id="H4F-3L-kFc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WhD-em-7yh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="132" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YQG-oF-LOp">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="YQG-oF-LOp" secondAttribute="trailing" id="2KO-R1-uye"/>
+                            <constraint firstAttribute="bottom" secondItem="YQG-oF-LOp" secondAttribute="bottom" id="JWr-SL-35o"/>
+                            <constraint firstItem="YQG-oF-LOp" firstAttribute="top" secondItem="WhD-em-7yh" secondAttribute="top" id="g7V-tY-3uz"/>
+                            <constraint firstItem="YQG-oF-LOp" firstAttribute="leading" secondItem="WhD-em-7yh" secondAttribute="leading" id="jzJ-SK-JWU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Cars list" id="S7V-af-HkG">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6p0-0G-Bef">
+                            <connections>
+                                <action selector="onTouchAddNewCar:" destination="TJC-AS-rkg" id="o4L-Oy-8Y4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="CarListTableView" destination="YQG-oF-LOp" id="a22-h9-xv4"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="addNewCarSegueID" id="HIm-b0-zXY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mmw-xb-XgY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="988" y="17.541229385307346"/>
+        </scene>
+        <!--Add New Car View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="AddNewCarViewController" customModule="CarCatalog" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="previewImage" translatesAutoresizingMaskIntoConstraints="NO" id="PWI-2i-Ytl">
+                                <rect key="frame" x="10" y="74" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="0sA-bI-ZIb"/>
+                                    <constraint firstAttribute="width" secondItem="PWI-2i-Ytl" secondAttribute="height" multiplier="1:1" id="ryv-Pq-RG9"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tcu-tb-hN5">
+                                <rect key="frame" x="170" y="194" width="140" height="30"/>
+                                <state key="normal" title="Choose photo"/>
+                                <connections>
+                                    <action selector="choosePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qI8-cK-buI"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OsP-sy-hTB">
+                                <rect key="frame" x="10" y="234" width="300" height="104"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HH7-Yd-PVp">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="64"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <accessibility key="accessibilityConfiguration" hint="Des"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrk-KD-dRn">
+                                        <rect key="frame" x="0.0" y="74" width="300" height="30"/>
+                                        <state key="normal" title="Save data"/>
+                                        <connections>
+                                            <action selector="onTouchSaveData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9yb-LP-QSm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="x2k-Ge-RIt">
+                                <rect key="frame" x="170" y="74" width="140" height="110"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Brand" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mS2-qV-CgE">
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Model" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="58b-Mc-9da">
+                                        <rect key="frame" x="0.0" y="40" width="140" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Release date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dh8-IZ-Q8w">
+                                        <rect key="frame" x="0.0" y="80" width="140" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="mTi-28-srd"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="OsP-sy-hTB" secondAttribute="trailing" constant="10" id="13Y-Sl-A0b"/>
+                            <constraint firstItem="x2k-Ge-RIt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="7c3-jI-X1p"/>
+                            <constraint firstAttribute="trailing" secondItem="x2k-Ge-RIt" secondAttribute="trailing" constant="10" id="C3M-Ya-N0m"/>
+                            <constraint firstItem="Tcu-tb-hN5" firstAttribute="top" secondItem="x2k-Ge-RIt" secondAttribute="bottom" constant="10" id="GXE-cs-Pjq"/>
+                            <constraint firstItem="PWI-2i-Ytl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="Ihq-nW-uY7"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OsP-sy-hTB" secondAttribute="bottom" constant="230" id="LCU-cw-WhF"/>
+                            <constraint firstItem="OsP-sy-hTB" firstAttribute="top" secondItem="Tcu-tb-hN5" secondAttribute="bottom" constant="10" id="M14-o5-pW7"/>
+                            <constraint firstItem="PWI-2i-Ytl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="QNl-O1-1bD"/>
+                            <constraint firstItem="Tcu-tb-hN5" firstAttribute="leading" secondItem="PWI-2i-Ytl" secondAttribute="trailing" constant="10" id="Vds-2O-knQ"/>
+                            <constraint firstItem="OsP-sy-hTB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="fbm-6R-o8J"/>
+                            <constraint firstAttribute="trailing" secondItem="Tcu-tb-hN5" secondAttribute="trailing" constant="10" id="hzI-3n-FXv"/>
+                            <constraint firstItem="x2k-Ge-RIt" firstAttribute="leading" secondItem="PWI-2i-Ytl" secondAttribute="trailing" constant="10" id="qsO-LR-RTp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="brandTextField" destination="mS2-qV-CgE" id="jfX-2d-4LC"/>
+                        <outlet property="carImage" destination="PWI-2i-Ytl" id="PGb-bm-WcW"/>
+                        <outlet property="descriptionTextField" destination="HH7-Yd-PVp" id="vmI-Dt-pBQ"/>
+                        <outlet property="modelTextField" destination="58b-Mc-9da" id="4Ti-yH-AKy"/>
+                        <outlet property="releaseDateTextField" destination="dh8-IZ-Q8w" id="dGR-Vd-UBX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1824.8" y="16.641679160419791"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sy5-Lk-T6s">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m2z-rK-25T" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KVh-eB-0uc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TJC-AS-rkg" kind="relationship" relationship="rootViewController" id="lb8-OU-RDH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DgO-ES-lOZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="219" y="16"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="previewImage" width="64" height="64"/>
+    </resources>
+</document>
