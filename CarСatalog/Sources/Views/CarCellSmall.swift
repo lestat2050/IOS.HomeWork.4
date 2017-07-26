@@ -9,7 +9,23 @@
 import UIKit
 
 class CarCellSmall: UITableViewCell {
+    
     @IBOutlet private(set) weak var brandLabel: UILabel!
     
     static let identifier: String = String(describing: CarCellSmall.self)
+
 }
+
+extension CarCellSmall: CarCellBranded { }
+
+class CarCellSmallConfigurator {
+    
+    init(view: CarCellSmall, model: String) {
+        view.selectionStyle = .none
+        view.brandLabel.text = model
+    }
+    
+}
+
+
+

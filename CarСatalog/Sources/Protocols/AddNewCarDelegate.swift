@@ -11,4 +11,5 @@ import Foundation
 protocol AddNewCarDelegate: class {
     func onCreatedNew(car: Car) -> Void
     func refreshList() -> Void
+    func refreshInfoStruct() -> Void
 }

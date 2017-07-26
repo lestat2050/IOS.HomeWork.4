@@ -19,6 +19,7 @@
 		D1B5C3981F2523E0001F5FA5 /* CarCellSmall.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1B5C3961F2523E0001F5FA5 /* CarCellSmall.xib */; };
 		D1B5C39B1F252BE7001F5FA5 /* CarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B5C3991F252BE7001F5FA5 /* CarCell.swift */; };
 		D1B5C39C1F252BE7001F5FA5 /* CarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1B5C39A1F252BE7001F5FA5 /* CarCell.xib */; };
+		D1EED5601F29222E00FF52D1 /* CarCellBranded.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EED55F1F29222E00FF52D1 /* CarCellBranded.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		D1B5C3961F2523E0001F5FA5 /* CarCellSmall.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarCellSmall.xib; sourceTree = "<group>"; };
 		D1B5C3991F252BE7001F5FA5 /* CarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCell.swift; sourceTree = "<group>"; };
 		D1B5C39A1F252BE7001F5FA5 /* CarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarCell.xib; sourceTree = "<group>"; };
+		D1EED55F1F29222E00FF52D1 /* CarCellBranded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCellBranded.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				D17858BB1F14A19D007F2DA7 /* AddNewCarDelegate.swift */,
+				D1EED55F1F29222E00FF52D1 /* CarCellBranded.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				D19D127F1F1B581200C05461 /* Car.swift in Sources */,
 				D1B5C39B1F252BE7001F5FA5 /* CarCell.swift in Sources */,
 				D17858A81F1495C8007F2DA7 /* AddNewCarViewController.swift in Sources */,
+				D1EED5601F29222E00FF52D1 /* CarCellBranded.swift in Sources */,
 				D17858BE1F14A374007F2DA7 /* CarListViewController.swift in Sources */,
 				D17858A61F1495C8007F2DA7 /* AppDelegate.swift in Sources */,
 			);

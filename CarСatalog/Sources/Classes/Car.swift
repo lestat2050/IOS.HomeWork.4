@@ -6,10 +6,10 @@
 //  Copyright © 2017 Yaroslav Surovtsev. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class Car {
+    
     var brand: String
     var model: String
     var releaseDate: Date
@@ -27,4 +27,5 @@ class Car {
         self.description = description
         self.image = image
     }
+    
 }

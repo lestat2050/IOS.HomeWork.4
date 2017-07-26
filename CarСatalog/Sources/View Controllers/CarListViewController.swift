@@ -9,6 +9,7 @@
 import UIKit
 
 class CarListViewController: UIViewController {
+    
     @IBOutlet private(set) weak var carListTableView: UITableView! {
         didSet {
             carListTableView.dataSource = self
@@ -18,12 +19,21 @@ class CarListViewController: UIViewController {
     }
     
     let addNewCarSegueID = "addNewCarSegueID"
-    let numberOfSections = 2
+    let estimatedHeightRow = 80
+    let headerHeight = 30
+    
+    struct SectionsInfo {
+        let title: String
+        let cellIdentifier: String
+        let isFullList: Bool
+        let dataArray: [Any]
+    }
+    var sections: [SectionsInfo] = []
     
     var carList: [Car] = []
     var brandList: [String] = []
     
-    lazy var dateFormat: DateFormatter = {
+    private(set) lazy var dateFormat: DateFormatter = {
         let dateFormat = DateFormatter()
         dateFormat.dateStyle = .medium
         return dateFormat
@@ -34,7 +44,8 @@ class CarListViewController: UIViewController {
         
         registerCells()
         addListSample()
-        refreshBrandList()
+        refreshList()
+        refreshInfoStruct()
     }
     
     private func registerCells() {
@@ -54,10 +65,6 @@ class CarListViewController: UIViewController {
         
         var defaultData: [Info] = []
         defaultData.append(Info(brand: "Tesla",
-                                model: "Model S",
-                                date: "May 17, 2012",
-                                description: "Price 49900$"))
-        defaultData.append(Info(brand: "Tesla",
                                 model: "Model X",
                                 date: "Jun 14, 2013",
                                 description: "Price 39900$. The Tesla Model S is a full-sized all-electric five-door, luxury liftback, produced by Tesla, Inc., and introduced on 22 June 2012.[14] It scored a perfect 5.0 NHTSA automobile safety rating."))
@@ -75,12 +82,16 @@ class CarListViewController: UIViewController {
                 carList.append(Car(brand: element.brand,
                                    model: element.model,
                                    releaseDate: $0,
-                                   description: element.description))
+                                   description: element.description,
+                                   image: nil))
             }
         }
     }
     
     func refreshBrandList() {
+        //do not working after add new car
+        //brandList = carList.map { !brandList.contains($0.brand) }
+        //    .carList.filter { $0.brand }.sorted(by: <)
         for item in carList {
             if !brandList.contains(item.brand) {
                 brandList.append(item.brand)
@@ -93,6 +104,12 @@ class CarListViewController: UIViewController {
         performSegue(withIdentifier: addNewCarSegueID, sender: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if let row = carListTableView.indexPathForSelectedRow {
+            self.carListTableView.deselectRow(at: row, animated: true)
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextViewController = segue.destination as! AddNewCarViewController
         nextViewController.delegate = self
@@ -100,97 +117,100 @@ class CarListViewController: UIViewController {
             nextViewController.carForEdit = carList[indexPath.row]
         }
     }
+    
 }
 
 extension CarListViewController: AddNewCarDelegate {
+    
     func onCreatedNew(car: Car) {
         carList.append(car)
-        refreshBrandList()
-        carListTableView.reloadData()
+        refreshList()
     }
     
     func refreshList() {
+        refreshBrandList()
+        refreshInfoStruct()
         carListTableView.reloadData()
     }
+    
+    func refreshInfoStruct() {
+        sections.removeAll()
+        sections.append(SectionsInfo(title: "Brands",
+                                     cellIdentifier: CarCellSmall.identifier,
+                                     isFullList: false,
+                                     dataArray: brandList))
+        sections.append(SectionsInfo(title: "Full list",
+                                     cellIdentifier: CarCell.identifier,
+                                     isFullList: true,
+                                     dataArray: carList))
+    }
+    
 }
 
 extension CarListViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
+        let label = UILabel()
         
         view.backgroundColor = UIColor.yellow
-        let label = UILabel()
-        if section == 0 {
-            label.text = "Brands"
-        } else {
-            label.text = "Full list"
-        }
+
+        label.text = sections[section].title
         label.frame = CGRect(x: 5, y: 5, width: 100, height: 20)
+        
         view.addSubview(label)
         
         return view
     }
+    
 }
 
 extension CarListViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return brandList.count
-        }
-        return carList.count
+        return sections[section].dataArray.count
     }
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: CarCellSmall.identifier,
-                                                     for: indexPath) as! CarCellSmall
-            let brand = brandList[indexPath.row]
-            
-            cell.selectionStyle = .none
-            cell.brandLabel.text = brand
-            
-            return cell
-        }
-        let cell = tableView.dequeueReusableCell(withIdentifier: CarCell.identifier,
-                                                 for: indexPath) as! CarCell
-        let car = carList[indexPath.row]
         
-        cell.selectionStyle = .none
-        cell.brandLabel.text = car.brand
-        cell.modelLabel.text = car.model
-        cell.releaseDateLabel.text = dateFormat.string(from: car.releaseDate)
-        cell.descriptionLabel.text = car.description
-        cell.descriptionLabel.numberOfLines = 0
-        if let image = car.image {
-            cell.carImage.image = image
+        let section = sections[indexPath.section]
+        let cell = tableView.dequeueReusableCell(withIdentifier: section.cellIdentifier,
+                                                 for: indexPath) as! CarCellBranded
+        
+        if !section.isFullList {
+            let car = section.dataArray[indexPath.row] as! String
+            let _ = CarCellSmallConfigurator(view: cell as! CarCellSmall, model: car)
+        } else {
+            let car = section.dataArray[indexPath.row] as! Car
+            let _ = CarCellConfigurator(view: cell as! CarCell, model: car)
         }
         
-        return cell
+        return cell as! UITableViewCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section != 0 {
+        if sections[indexPath.section].isFullList {
             performSegue(withIdentifier: addNewCarSegueID, sender: nil)
         }
-        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return numberOfSections
+        return sections.count
     }
     
     func tableView(_ tableView: UITableView,
                    estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return CGFloat(estimatedHeightRow)
     }
     
     func tableView(_ tableView: UITableView,
                    heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        return CGFloat(headerHeight)
     }
+    
 }
 
 
