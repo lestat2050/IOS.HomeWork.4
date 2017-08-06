@@ -21,10 +21,13 @@ class AddNewCarViewController: UIViewController {
     }
     
     weak var delegate: AddNewCarDelegate?
-    weak var carForEdit: Car?
+    weak var editedCar: Car?
     
     private lazy var imagePicker: UIImagePickerController = {
         let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = false
         return imagePicker
     }()
     
@@ -32,15 +35,9 @@ class AddNewCarViewController: UIViewController {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
         datePicker.addTarget(self,
-                             action: #selector(AddNewCarViewController.datePickerChanged),
+                             action: #selector(self.datePickerChanged),
                              for: .valueChanged)
         return datePicker
-    }()
-    
-    private lazy var dateFormat: DateFormatter = {
-        let dateFormat = DateFormatter()
-        dateFormat.dateStyle = .medium
-        return dateFormat
     }()
     
     override func viewDidLoad() {
@@ -50,22 +47,25 @@ class AddNewCarViewController: UIViewController {
     }
     
     func loadCarForEdit() {
-        if let carForEdit = carForEdit {
-            brandTextField.text = carForEdit.brand
-            modelTextField.text = carForEdit.model
-            releaseDateTextField.text = dateFormat.string(from: carForEdit.releaseDate)
-            descriptionTextField.text = carForEdit.description
-            if let image = carForEdit.image {
-                carImage.image = image
-            }
+        if let editedCar = editedCar {
+            brandTextField.text = editedCar.brand
+            modelTextField.text = editedCar.model
+            releaseDateTextField.text = dateFormat.string(from: editedCar.releaseDate)
+            descriptionTextField.text = editedCar.description
+            carImage.image = editedCar.image
         }
     }
     
     func datePickerChanged(sender: UIDatePicker) {
         releaseDateTextField.text = dateFormat.string(from: sender.date)
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 
     @IBAction func onTouchSaveData(_ sender: UIButton) {
+        
         guard let brand = brandTextField.text, !brand.isEmpty else {
             showAlert(with: "Fill brand")
             return
@@ -85,39 +85,30 @@ class AddNewCarViewController: UIViewController {
         if let description = descriptionTextField.text, !description.isEmpty {
             descriptionText = description
         }
-        
-        var newCarImage: UIImage?
-        if let image = carImage.image {
-            newCarImage = image
-        }
 
-        if let carForEdit = carForEdit {
-            carForEdit.brand = brand
-            carForEdit.model = model
-            carForEdit.releaseDate = releaseDate
-            carForEdit.description = descriptionText
-            carForEdit.image = newCarImage
+        if let editedCar = editedCar {
+            editedCar.brand = brand
+            editedCar.model = model
+            editedCar.releaseDate = releaseDate
+            editedCar.description = descriptionText
+            editedCar.image = carImage.image!
             delegate?.refreshList()
         } else {
             let car = Car(brand: brand,
                           model: model,
                           releaseDate: releaseDate,
                           description: descriptionText,
-                          image: newCarImage)
+                          image: carImage.image!)
             delegate?.onCreatedNew(car: car)
         }
         navigationController?.popViewController(animated: true)
+        
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
+    
     
     @IBAction func choosePhoto(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            imagePicker.delegate = self
-            imagePicker.sourceType = .photoLibrary
-            imagePicker.allowsEditing = false
             self.present(imagePicker, animated: true)
         }
     }
@@ -132,7 +123,7 @@ extension UIViewController {
                                       preferredStyle: .alert)
         let actionOk = UIAlertAction(title: "OK", style: .default)
         alert.addAction(actionOk)
-        present(alert, animated: true, completion: nil)
+        present(alert, animated: true)
     }
     
 }
@@ -143,13 +134,13 @@ extension AddNewCarViewController: UIImagePickerControllerDelegate {
 
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        carImage.image = image
-        picker.dismiss(animated: true, completion: nil)
+        let imageFromGallery = info[UIImagePickerControllerOriginalImage] as? UIImage
+        carImage.image = imageFromGallery
+        picker.dismiss(animated: true)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
+        picker.dismiss(animated: true)
     }
     
 }

@@ -14,13 +14,13 @@ class Car {
     var model: String
     var releaseDate: Date
     var description: String?
-    var image: UIImage?
-
+    var image: UIImage
+    
     init(brand: String,
          model: String,
          releaseDate: Date,
          description: String? = nil,
-         image: UIImage? = nil) {
+         image: UIImage = UIImage(named: "imagePreview")!) {
         self.brand = brand
         self.model = model
         self.releaseDate = releaseDate
@@ -29,3 +29,5 @@ class Car {
     }
     
 }
+
+extension Car: Branded { }

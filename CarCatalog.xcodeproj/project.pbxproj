@@ -15,11 +15,17 @@
 		D17858BE1F14A374007F2DA7 /* CarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17858BD1F14A374007F2DA7 /* CarListViewController.swift */; };
 		D19D127C1F1B545700C05461 /* AddNewCarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17858BB1F14A19D007F2DA7 /* AddNewCarDelegate.swift */; };
 		D19D127F1F1B581200C05461 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19D127E1F1B581200C05461 /* Car.swift */; };
-		D1B5C3971F2523E0001F5FA5 /* CarCellSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B5C3951F2523E0001F5FA5 /* CarCellSmall.swift */; };
-		D1B5C3981F2523E0001F5FA5 /* CarCellSmall.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1B5C3961F2523E0001F5FA5 /* CarCellSmall.xib */; };
-		D1B5C39B1F252BE7001F5FA5 /* CarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B5C3991F252BE7001F5FA5 /* CarCell.swift */; };
-		D1B5C39C1F252BE7001F5FA5 /* CarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1B5C39A1F252BE7001F5FA5 /* CarCell.xib */; };
-		D1EED5601F29222E00FF52D1 /* CarCellBranded.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EED55F1F29222E00FF52D1 /* CarCellBranded.swift */; };
+		D1A55ECA1F322B4D00E600F7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A55EC91F322B4C00E600F7 /* Constants.swift */; };
+		D1B5C3971F2523E0001F5FA5 /* CarCellBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B5C3951F2523E0001F5FA5 /* CarCellBrand.swift */; };
+		D1B5C3981F2523E0001F5FA5 /* CarCellBrand.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1B5C3961F2523E0001F5FA5 /* CarCellBrand.xib */; };
+		D1B5C39B1F252BE7001F5FA5 /* CarCellFullList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B5C3991F252BE7001F5FA5 /* CarCellFullList.swift */; };
+		D1B5C39C1F252BE7001F5FA5 /* CarCellFullList.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1B5C39A1F252BE7001F5FA5 /* CarCellFullList.xib */; };
+		D1EDC50C1F3706BD002153E5 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EDC50B1F3706BD002153E5 /* Brand.swift */; };
+		D1EDC50F1F37077C002153E5 /* CarListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EDC50E1F37077C002153E5 /* CarListModel.swift */; };
+		D1EDC5111F37079E002153E5 /* CarListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EDC5101F37079E002153E5 /* CarListDataSource.swift */; };
+		D1EDC5131F370B5C002153E5 /* CarCellBrandConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EDC5121F370B5C002153E5 /* CarCellBrandConfigurator.swift */; };
+		D1EDC5151F370B9C002153E5 /* CarCellFullListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EDC5141F370B9C002153E5 /* CarCellFullListConfigurator.swift */; };
+		D1EED5601F29222E00FF52D1 /* ConfiguratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EED55F1F29222E00FF52D1 /* ConfiguratorProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,11 +39,17 @@
 		D17858BB1F14A19D007F2DA7 /* AddNewCarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewCarDelegate.swift; sourceTree = "<group>"; };
 		D17858BD1F14A374007F2DA7 /* CarListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarListViewController.swift; sourceTree = "<group>"; };
 		D19D127E1F1B581200C05461 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
-		D1B5C3951F2523E0001F5FA5 /* CarCellSmall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCellSmall.swift; sourceTree = "<group>"; };
-		D1B5C3961F2523E0001F5FA5 /* CarCellSmall.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarCellSmall.xib; sourceTree = "<group>"; };
-		D1B5C3991F252BE7001F5FA5 /* CarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCell.swift; sourceTree = "<group>"; };
-		D1B5C39A1F252BE7001F5FA5 /* CarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarCell.xib; sourceTree = "<group>"; };
-		D1EED55F1F29222E00FF52D1 /* CarCellBranded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCellBranded.swift; sourceTree = "<group>"; };
+		D1A55EC91F322B4C00E600F7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D1B5C3951F2523E0001F5FA5 /* CarCellBrand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCellBrand.swift; sourceTree = "<group>"; };
+		D1B5C3961F2523E0001F5FA5 /* CarCellBrand.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarCellBrand.xib; sourceTree = "<group>"; };
+		D1B5C3991F252BE7001F5FA5 /* CarCellFullList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCellFullList.swift; sourceTree = "<group>"; };
+		D1B5C39A1F252BE7001F5FA5 /* CarCellFullList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarCellFullList.xib; sourceTree = "<group>"; };
+		D1EDC50B1F3706BD002153E5 /* Brand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
+		D1EDC50E1F37077C002153E5 /* CarListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarListModel.swift; sourceTree = "<group>"; };
+		D1EDC5101F37079E002153E5 /* CarListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarListDataSource.swift; sourceTree = "<group>"; };
+		D1EDC5121F370B5C002153E5 /* CarCellBrandConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCellBrandConfigurator.swift; sourceTree = "<group>"; };
+		D1EDC5141F370B9C002153E5 /* CarCellFullListConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCellFullListConfigurator.swift; sourceTree = "<group>"; };
+		D1EED55F1F29222E00FF52D1 /* ConfiguratorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfiguratorProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,31 +84,32 @@
 			children = (
 				D1B5C39E1F25A966001F5FA5 /* Sources */,
 				D19D12831F1B711E00C05461 /* Resources */,
-				D1B5C39D1F25A92C001F5FA5 /* Supporting Files */,
+				D1B5C39D1F25A92C001F5FA5 /* SupportingFiles */,
 			);
 			path = "CarСatalog";
 			sourceTree = "<group>";
 		};
-		D19D12801F1B6FA400C05461 /* View Controllers */ = {
+		D19D12801F1B6FA400C05461 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D1EDC50D1F370743002153E5 /* CarListViewController */,
 				D17858A71F1495C8007F2DA7 /* AddNewCarViewController.swift */,
-				D17858BD1F14A374007F2DA7 /* CarListViewController.swift */,
 			);
-			path = "View Controllers";
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		D19D12811F1B70CD00C05461 /* Application Delegate */ = {
+		D19D12811F1B70CD00C05461 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
 				D17858A51F1495C8007F2DA7 /* AppDelegate.swift */,
 			);
-			path = "Application Delegate";
+			path = AppDelegate;
 			sourceTree = "<group>";
 		};
 		D19D12831F1B711E00C05461 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D1A55EC81F322B2000E600F7 /* Constants */,
 				D19D12841F1B715300C05461 /* Storyboards */,
 				D17858AC1F1495C8007F2DA7 /* Assets.xcassets */,
 			);
@@ -116,48 +129,86 @@
 			isa = PBXGroup;
 			children = (
 				D17858BB1F14A19D007F2DA7 /* AddNewCarDelegate.swift */,
-				D1EED55F1F29222E00FF52D1 /* CarCellBranded.swift */,
+				D1EED55F1F29222E00FF52D1 /* ConfiguratorProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		D19D12871F1B728200C05461 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				D1B5C3951F2523E0001F5FA5 /* CarCellSmall.swift */,
-				D1B5C3961F2523E0001F5FA5 /* CarCellSmall.xib */,
-				D1B5C3991F252BE7001F5FA5 /* CarCell.swift */,
-				D1B5C39A1F252BE7001F5FA5 /* CarCell.xib */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		D19D12881F1B728C00C05461 /* Classes */ = {
+		D19D12881F1B728C00C05461 /* VO */ = {
 			isa = PBXGroup;
 			children = (
 				D19D127E1F1B581200C05461 /* Car.swift */,
+				D1EDC50B1F3706BD002153E5 /* Brand.swift */,
 			);
-			path = Classes;
+			path = VO;
 			sourceTree = "<group>";
 		};
-		D1B5C39D1F25A92C001F5FA5 /* Supporting Files */ = {
+		D1A55EC81F322B2000E600F7 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				D1A55EC91F322B4C00E600F7 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		D1B5C39D1F25A92C001F5FA5 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
 				D17858B11F1495C9007F2DA7 /* Info.plist */,
 			);
+			name = SupportingFiles;
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		D1B5C39E1F25A966001F5FA5 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				D19D12801F1B6FA400C05461 /* View Controllers */,
-				D19D12811F1B70CD00C05461 /* Application Delegate */,
-				D19D12871F1B728200C05461 /* Views */,
-				D19D12881F1B728C00C05461 /* Classes */,
+				D19D12801F1B6FA400C05461 /* ViewControllers */,
+				D1EDC50A1F3705E5002153E5 /* Cells */,
+				D19D12881F1B728C00C05461 /* VO */,
 				D19D12861F1B725700C05461 /* Protocols */,
+				D19D12811F1B70CD00C05461 /* AppDelegate */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		D1EDC5061F36F17C002153E5 /* CarCellBrand */ = {
+			isa = PBXGroup;
+			children = (
+				D1B5C3951F2523E0001F5FA5 /* CarCellBrand.swift */,
+				D1B5C3961F2523E0001F5FA5 /* CarCellBrand.xib */,
+				D1EDC5121F370B5C002153E5 /* CarCellBrandConfigurator.swift */,
+			);
+			path = CarCellBrand;
+			sourceTree = "<group>";
+		};
+		D1EDC5071F36F1A3002153E5 /* CarCellFullList */ = {
+			isa = PBXGroup;
+			children = (
+				D1B5C3991F252BE7001F5FA5 /* CarCellFullList.swift */,
+				D1B5C39A1F252BE7001F5FA5 /* CarCellFullList.xib */,
+				D1EDC5141F370B9C002153E5 /* CarCellFullListConfigurator.swift */,
+			);
+			path = CarCellFullList;
+			sourceTree = "<group>";
+		};
+		D1EDC50A1F3705E5002153E5 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D1EDC5061F36F17C002153E5 /* CarCellBrand */,
+				D1EDC5071F36F1A3002153E5 /* CarCellFullList */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		D1EDC50D1F370743002153E5 /* CarListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D17858BD1F14A374007F2DA7 /* CarListViewController.swift */,
+				D1EDC50E1F37077C002153E5 /* CarListModel.swift */,
+				D1EDC5101F37079E002153E5 /* CarListDataSource.swift */,
+			);
+			path = CarListViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,9 +273,9 @@
 			files = (
 				D17858B01F1495C9007F2DA7 /* LaunchScreen.storyboard in Resources */,
 				D17858AD1F1495C8007F2DA7 /* Assets.xcassets in Resources */,
-				D1B5C3981F2523E0001F5FA5 /* CarCellSmall.xib in Resources */,
+				D1B5C3981F2523E0001F5FA5 /* CarCellBrand.xib in Resources */,
 				D17858AB1F1495C8007F2DA7 /* Main.storyboard in Resources */,
-				D1B5C39C1F252BE7001F5FA5 /* CarCell.xib in Resources */,
+				D1B5C39C1F252BE7001F5FA5 /* CarCellFullList.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,13 +287,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				D19D127C1F1B545700C05461 /* AddNewCarDelegate.swift in Sources */,
-				D1B5C3971F2523E0001F5FA5 /* CarCellSmall.swift in Sources */,
+				D1B5C3971F2523E0001F5FA5 /* CarCellBrand.swift in Sources */,
 				D19D127F1F1B581200C05461 /* Car.swift in Sources */,
-				D1B5C39B1F252BE7001F5FA5 /* CarCell.swift in Sources */,
+				D1EDC50F1F37077C002153E5 /* CarListModel.swift in Sources */,
+				D1EDC5131F370B5C002153E5 /* CarCellBrandConfigurator.swift in Sources */,
+				D1EDC50C1F3706BD002153E5 /* Brand.swift in Sources */,
+				D1B5C39B1F252BE7001F5FA5 /* CarCellFullList.swift in Sources */,
 				D17858A81F1495C8007F2DA7 /* AddNewCarViewController.swift in Sources */,
-				D1EED5601F29222E00FF52D1 /* CarCellBranded.swift in Sources */,
+				D1EDC5151F370B9C002153E5 /* CarCellFullListConfigurator.swift in Sources */,
+				D1EDC5111F37079E002153E5 /* CarListDataSource.swift in Sources */,
+				D1EED5601F29222E00FF52D1 /* ConfiguratorProtocol.swift in Sources */,
 				D17858BE1F14A374007F2DA7 /* CarListViewController.swift in Sources */,
 				D17858A61F1495C8007F2DA7 /* AppDelegate.swift in Sources */,
+				D1A55ECA1F322B4D00E600F7 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
