@@ -10,15 +10,21 @@ import UIKit
 
 class CarListViewController: UIViewController {
     
+    //MARK: - Outlets
+    
     @IBOutlet private(set) weak var carListTableView: UITableView! {
         didSet {
             configurateCarListTableView()
         }
     }
     
+    //MARK: - Properties
+    
     let model = CarListModel()
     
     var dataSource: CarListDataSource?
+    
+    //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +33,16 @@ class CarListViewController: UIViewController {
         configureDataSources()
         addListSample()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let row = carListTableView.indexPathForSelectedRow {
+            self.carListTableView.deselectRow(at: row, animated: true)
+        }
+        model.selectedCar = nil
+    }
+    
+    //MARK: - Methods
     
     private func configurateCarListTableView() {
         carListTableView.dataSource = self
@@ -96,23 +112,19 @@ class CarListViewController: UIViewController {
         }
     }
     
-    @IBAction func onTouchAddNewCar(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: addNewCarSegueID, sender: nil)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if let row = carListTableView.indexPathForSelectedRow {
-            self.carListTableView.deselectRow(at: row, animated: true)
-        }
-        model.selectedCar = nil
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextViewController = segue.destination as! AddNewCarViewController
         nextViewController.delegate = self
         nextViewController.editedCar = model.selectedCar as? Car
     }
+    
+    //MARK: - Actions
+    
+    @IBAction func onTouchAddNewCar(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: addNewCarSegueID, sender: nil)
+    }
+    
+    //MARK: -
     
     deinit {
         NotificationCenter.default.removeObserver(self)

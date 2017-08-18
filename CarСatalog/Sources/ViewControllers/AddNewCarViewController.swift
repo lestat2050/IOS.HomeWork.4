@@ -10,6 +10,8 @@ import UIKit
 
 class AddNewCarViewController: UIViewController {
     
+    //MARK: - Outlets
+    
     @IBOutlet private(set) weak var carImage: UIImageView!
     @IBOutlet private(set) weak var brandTextField: UITextField!
     @IBOutlet private(set) weak var modelTextField: UITextField!
@@ -17,8 +19,13 @@ class AddNewCarViewController: UIViewController {
     @IBOutlet private(set) weak var releaseDateTextField: UITextField! {
         didSet {
             releaseDateTextField.inputView = datePicker
+            releaseDateTextField.addTarget(self,
+                                           action: #selector(self.releaseDateEditingDidBegin),
+                                           for: UIControlEvents.editingDidBegin)
         }
     }
+    
+    //MARK: - Properties
     
     weak var delegate: AddNewCarDelegate?
     weak var editedCar: Car?
@@ -40,11 +47,15 @@ class AddNewCarViewController: UIViewController {
         return datePicker
     }()
     
+    //MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadCarForEdit()
     }
+    
+    //MARK: - Methods
     
     func loadCarForEdit() {
         if let editedCar = editedCar {
@@ -56,6 +67,12 @@ class AddNewCarViewController: UIViewController {
         }
     }
     
+    func releaseDateEditingDidBegin(sender: UITextField) {
+        if sender.text!.isEmpty {
+            releaseDateTextField.text = dateFormat.string(from: datePicker.date)
+        }
+    }
+    
     func datePickerChanged(sender: UIDatePicker) {
         releaseDateTextField.text = dateFormat.string(from: sender.date)
     }
@@ -64,6 +81,8 @@ class AddNewCarViewController: UIViewController {
         self.view.endEditing(true)
     }
 
+    //MARK: - Actions
+    
     @IBAction func onTouchSaveData(_ sender: UIButton) {
         
         guard let brand = brandTextField.text, !brand.isEmpty else {
@@ -105,8 +124,6 @@ class AddNewCarViewController: UIViewController {
         
     }
     
-    
-    
     @IBAction func choosePhoto(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             self.present(imagePicker, animated: true)
@@ -118,7 +135,7 @@ class AddNewCarViewController: UIViewController {
 extension UIViewController {
     
     func showAlert(with title: String) {
-        let alert = UIAlertController(title: "Error",
+        let alert = UIAlertController(title: "Missing data",
                                       message: title,
                                       preferredStyle: .alert)
         let actionOk = UIAlertAction(title: "OK", style: .default)
